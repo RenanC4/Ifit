@@ -1,18 +1,18 @@
 import React from 'react';
 import styled from 'styled-components/native'
-import { View, Text } from 'react-native';
+import ButtonIcon from '../Components/ButtonIcon/ButtonIcon'
+import { View, Text, Button } from 'react-native';
 
 const StyledText = styled.Text`
   color: #000;
 `
 const StyledView = styled.View`
-  height: 150px;
-  width: 150px;
+  height: 100px;
+  width: 100px;
   border-radius: 5px;
   border-width: 1px;
   display: flex;
   justify-content:center;
-  background-color: #BAD;
   align-items: center;
   margin: 10px;
 `
@@ -24,27 +24,32 @@ const StyledContainerView = styled.View`
   margin-top: 50px;
   flex-wrap: wrap;
 `
-export const HomeScene = () => {
+
+const HelloView = styled.View`
+  height: 40px;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 25px;
+  margin-left: 20px;
+`
+
+const HelloText = styled.Text`
+  font-size: 22px;
+`
+export const HomeScene = ({navigation}) => {
   return (
-    <StyledContainerView>
-      <StyledView>
-        <StyledText>Wod</StyledText>
-      </StyledView>
-      <StyledView>
-        <StyledText>LPO</StyledText>
-      </StyledView>
-      <StyledView>
-        <StyledText>Endurance</StyledText>
-      </StyledView>
-      <StyledView>
-        <StyledText>Gymnastics</StyledText>
-      </StyledView>
-      <StyledView>
-        <StyledText>Store</StyledText>
-      </StyledView>
-      <StyledView>
-        <StyledText>Open</StyledText>
-      </StyledView>
-    </StyledContainerView>
+    <View>
+      <HelloView>
+       <HelloText>Olà, Mat Fraser</HelloText>
+      </HelloView>
+      <StyledContainerView>
+        <ButtonIcon text="WOD" onPressHandler={() => {navigation.navigate('Wod')}}/>
+        <ButtonIcon text="LPO"/>
+        <ButtonIcon text="Endurance"/>
+        <ButtonIcon text="Gymnastics"/>
+        <ButtonIcon text="Store"/>
+        <ButtonIcon text="Open 2020"/>
+      </StyledContainerView>
+    </View>
   );
 }

@@ -4,35 +4,27 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import {displayName as appName} from '../app.json';
 import {HomeScene} from './Scenes/Home'
-
-function HomeScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-    </View>
-  );
-}
-
-function DetailsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
-    </View>
-  );
-}
+import {WodScene} from './Scenes/Wod'
+import {SignInScene} from './Scenes/LoggedOut/SignIn'
+import {SignUp} from './Scenes/LoggedOut/SignUp'
 
 
 export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"> 
+      <Stack.Navigator initialRouteName="SignIn"> 
+        <Stack.Screen 
+        name="SignIn" 
+        component={SignInScene} 
+        options={{headerShown: false }}
+        />
         <Stack.Screen 
         name="Home" 
         component={HomeScene}
         options={{ title: appName }}
         />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="Wod" component={WodScene} />
       </Stack.Navigator>
     </NavigationContainer>
   );
