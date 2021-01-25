@@ -21,7 +21,7 @@ const StyledIcon = styled.View`
 
 `
 
-export const SignInScene = () => {
+export const SignInScene = ({navigation}) => {
   return (
     <StyledView>
       <View>
@@ -34,7 +34,7 @@ export const SignInScene = () => {
                 style={{width: 192, height: 48}}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
-                onPress={() => console.log(`logai`)}
+                onPress={() => navigation.navigate('Home')}
               />
       </View>
     </StyledView>
