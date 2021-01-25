@@ -22,7 +22,7 @@ export const Routes = () => {
         <Stack.Screen 
         name="Home" 
         component={HomeScene}
-        options={{ title: appName }}
+        options={{ title: appName, headerLeft: false}}
         />
         <Stack.Screen name="Wod" component={WodScene} />
       </Stack.Navigator>
