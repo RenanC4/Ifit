@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/native'
-import ButtonIcon from '../Components/ButtonIcon/ButtonIcon'
-import { View, Text, Button } from 'react-native';
+import ButtonIcon from '../../Components/ButtonIcon/ButtonIcon'
+import { View } from 'react-native';
 
 const StyledText = styled.Text`
   color: #000;

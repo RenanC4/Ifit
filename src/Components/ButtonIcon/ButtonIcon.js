@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 
 const StyledText = styled.Text`
-  color: #000;
+  color: #333;
 `
 const StyledPressable = styled.Pressable`
   height: 100px;
@@ -13,6 +13,7 @@ const StyledPressable = styled.Pressable`
   justify-content:center;
   align-items: center;
   margin: 10px;
+  border-color:#3a9efd;
 `
 
 const ButtonIcon = ({text, ...props}) => {

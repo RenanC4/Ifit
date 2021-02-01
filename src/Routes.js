@@ -1,10 +1,9 @@
 import * as React from 'react';
-import { View, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import {displayName as appName} from '../app.json';
-import {HomeScene} from './Scenes/Home'
-import {WodScene} from './Scenes/Wod'
+import {HomeScene} from './Scenes/Home/Home'
+import {WodScene} from './Scenes/WOD/WOD'
 import {SignInScene} from './Scenes/LoggedOut/SignIn'
 import {SignUp} from './Scenes/LoggedOut/SignUp'
 
@@ -13,7 +12,7 @@ export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn"> 
+      <Stack.Navigator initialRouteName="Home"> 
         <Stack.Screen 
         name="SignIn" 
         component={SignInScene} 
