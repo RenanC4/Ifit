@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import {displayName as appName} from '../app.json';
 import {HomeScene} from './Scenes/Home/Home'
 import {WodScene} from './Scenes/WOD/WOD'
+import {LpoScene} from './Scenes/LPO/LPO'
 import {SignInScene} from './Scenes/LoggedOut/SignIn'
 import {SignUp} from './Scenes/LoggedOut/SignUp'
 
@@ -24,6 +25,7 @@ export const Routes = () => {
         options={{ title: appName, headerLeft: false}}
         />
         <Stack.Screen name="Wod" component={WodScene} />
+        <Stack.Screen name="Lpo" component={LpoScene} />
       </Stack.Navigator>
     </NavigationContainer>
   );

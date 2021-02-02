@@ -1,6 +1,7 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import {getDateNow} from '../../services/Date'
+import React, {useEffect, useState} from 'react';
+import { Text, View } from 'react-native';
+import { getDateNow } from '../../services/Date'
+import { wodObject } from '../../services/WODObject'
 import styled from 'styled-components/native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
@@ -26,15 +27,49 @@ const StyledContentView = styled.View`
   margin-top: 10px;
   margin-left: 10px;
 `
+let generateDescription = (description) => {
+  return (
+    <Text>
+      {description}
+    </Text>
+  )
+}
+
+let generateDivision = (divisionName, description) => {
+    let items = []
+    for(i = 0; i< description.length; i++) {
+      items.push(generateDescription(description[i]))
+    }
+    return (
+      <View >
+        <StyledTitleView >
+          <StyledTitleText>{divisionName}</StyledTitleText>
+        </StyledTitleView>
+        <StyledContentView>{items}</StyledContentView>
+      </View>
+    )
+}
+
 
 export const WodScene = () => {
+  let itemsToScreen= [];
+  wodObject.forEach(object => {
+    itemsToScreen.push(generateDivision(object.divisionName, object.description))
+  })
+  /*for(i = 0; i< wodObject.length; i++) {
+    console.log(wodObject.length)
+    console.log('passou aqui', i)
+    itemsToScreen.push(generateDivision(i, wodObject[i].divisionName, wodObject[i].description))
+  }*/
+
   return (
     <ScrollView>
       <SafeAreaView>
         <StyledView>
           <StyledDateText> {getDateNow()}</StyledDateText>
         </StyledView>
-        <StyledTitleView>
+        {itemsToScreen}
+        {/*<StyledTitleView>
           <StyledTitleText>Warmup</StyledTitleText>
         </StyledTitleView>
         <StyledContentView>
@@ -96,7 +131,7 @@ export const WodScene = () => {
           <Text>30 Russian Twists</Text>
           <Text>20 Hanging Side Crunches</Text>
           <Text>90 Secondsrest between sets</Text>
-        </StyledContentView>
+        </StyledContentView>*/}
       </SafeAreaView>
     </ScrollView>
   );
