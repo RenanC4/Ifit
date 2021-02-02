@@ -1,0 +1,1 @@
+export const getDateNow = () => `${new Date().getDay()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
