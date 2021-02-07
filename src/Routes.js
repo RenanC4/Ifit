@@ -13,7 +13,7 @@ export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"> 
+      <Stack.Navigator initialRouteName="LPO"> 
         <Stack.Screen 
         name="SignIn" 
         component={SignInScene} 
@@ -25,7 +25,9 @@ export const Routes = () => {
         options={{ title: appName, headerLeft: false}}
         />
         <Stack.Screen name="Wod" component={WodScene} />
-        <Stack.Screen name="Lpo" component={LpoScene} />
+        <Stack.Screen name="Lpo" component={LpoScene} 
+        options={{ title: "LPO"}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
