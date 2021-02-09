@@ -4,6 +4,7 @@ import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
 import {LPOMoviments} from '../../services/LpoMoviments'
 import {Modal, Text} from 'react-native'
+import { useNavigation } from '@react-navigation/native';
 
 const StyledTouchable = styled.TouchableOpacity`
   display:flex;
@@ -21,9 +22,12 @@ const StyledMovimentText = styled.Text`
   padding-right: 15px;
   font-size: 15px;
 `
-const generateComponent = (moviment, record, press) => {
+const generateComponent = (moviment, record, navigation) => {
   return (
-    <StyledTouchable onPress={()=> press(true)}>
+    <StyledTouchable onPress={()=> navigation.navigate('Details', {
+      moviment,
+      record
+    })}>
       <StyledMovimentText>{moviment}</StyledMovimentText> 
       {record && <StyledMovimentText>{record}</StyledMovimentText>}
     </StyledTouchable>
@@ -31,36 +35,20 @@ const generateComponent = (moviment, record, press) => {
 }
 
 export const LpoScene = () => {
-  const [modalVisible, setModalVisible] = useState(false)
+  const navigation = useNavigation();
 
   let items = []
   LPOMoviments.forEach( moviment => {
     items.push(generateComponent(
       moviment,
-       '15lbs',
-       setModalVisible
+       300,
+       navigation
        ))
   })
   
   return (
     <ScrollView>
       <SafeAreaView>
-      <Modal
-        style={{color: "#Bad"}}
-        animationType="slide"
-        transparent={false}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
-          setModalVisible(false);
-        }}
-      >
-      <SafeAreaView>
-        <TouchableOpacity onPress={() => setModalVisible(false)}> 
-          <Text>Hello World!</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-      </Modal>
        {items}
       </SafeAreaView>
     </ScrollView>

@@ -14,6 +14,7 @@ const StyledPressable = styled.Pressable`
   align-items: center;
   margin: 10px;
   border-color:#3a9efd;
+  
 `
 
 const ButtonIcon = ({text, ...props}) => {
