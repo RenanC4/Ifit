@@ -1,9 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import styled from 'styled-components/native'
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
 import {LPOMoviments} from '../../services/LpoMoviments'
-import {Modal, Text} from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 
 const StyledTouchable = styled.TouchableOpacity`
@@ -22,9 +21,9 @@ const StyledMovimentText = styled.Text`
   padding-right: 15px;
   font-size: 15px;
 `
-const generateComponent = (moviment, record, navigation) => {
+const generateComponent = (moviment, key, record, navigation) => {
   return (
-    <StyledTouchable onPress={()=> navigation.navigate('Details', {
+    <StyledTouchable key={key} onPress={()=> navigation.navigate('Details', {
       moviment,
       record
     })}>
@@ -38,9 +37,10 @@ export const LpoScene = () => {
   const navigation = useNavigation();
 
   let items = []
-  LPOMoviments.forEach( moviment => {
+  LPOMoviments.forEach((moviment, index) => {
     items.push(generateComponent(
       moviment,
+      index,
        300,
        navigation
        ))

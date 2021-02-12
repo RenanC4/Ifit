@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { Text, View } from 'react-native';
 import { getDateNow } from '../../services/Date'
 import { wodObject } from '../../services/WODObject'
@@ -27,22 +27,22 @@ const StyledContentView = styled.View`
   margin-top: 10px;
   margin-left: 10px;
 `
-const generateDescription = (description) => {
+const generateDescription = (description, key) => {
   return (
-    <Text>
+    <Text key={key}>
       {description}
     </Text>
   )
 }
 
-const generateDivision = (divisionName, description) => {
+const generateDivision = (divisionName, description, key) => {
     let items = []
     for(i = 0; i< description.length; i++) {
-      items.push(generateDescription(description[i]))
+      items.push(generateDescription(description[i], i))
     }
     return (
-      <View >
-        <StyledTitleView >
+      <View key={key}>
+        <StyledTitleView>
           <StyledTitleText>{divisionName}</StyledTitleText>
         </StyledTitleView>
         <StyledContentView>{items}</StyledContentView>
@@ -50,11 +50,10 @@ const generateDivision = (divisionName, description) => {
     )
 }
 
-
 export const WodScene = () => {
   let itemsToScreen= [];
-  wodObject.forEach(object => {
-    itemsToScreen.push(generateDivision(object.divisionName, object.description))
+  wodObject.forEach((object, index) => {
+    itemsToScreen.push(generateDivision(object.divisionName, object.description, index))
   })
 
   return (
