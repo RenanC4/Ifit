@@ -16,10 +16,10 @@ const StyledHeaderNewPRView = styled.View`
   padding-top: 15px;
   padding-left: 15px;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   background-color:#fff;
-  height:180px;
+  height:170px;
 `
 const StyledNewPRChild = styled.View`
   flex-direction: row;
@@ -80,8 +80,8 @@ export const DetailsScene = ({route}) => {
     </StyledHeaderView>
     
      <StyledHeaderNewPRView>
-       <Subheading>Novo recorde:</Subheading>
        <StyledNewPRChild>
+         <Subheading>Novo recorde - </Subheading>
          <Subheading>Peso:</Subheading>
         <TextInput
           style={{width: 80, height: 40, backgroundColor: "#f1f1f1"}}
@@ -96,7 +96,7 @@ export const DetailsScene = ({route}) => {
         <Subheading > lbs</Subheading>
       </StyledNewPRChild>
       <StyledNewPRView>
-        <StyledNewPRTouchable onPress={() => {console.log('novoPR', newPRWeight), addPR()}}>
+        <StyledNewPRTouchable onPress={() => {addPR()}}>
           <Text>+ Novo PR</Text>
         </StyledNewPRTouchable>
       </StyledNewPRView>
