@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native'
 import {TextInput, SafeAreaView, Text} from 'react-native'
 import { Headline, Subheading } from 'react-native-paper';
+import database from '@react-native-firebase/database';
 
 const StyledHeaderView = styled.View`
   display: flex;
@@ -45,14 +46,37 @@ const StyledNewPRView = styled.View`
 export const DetailsScene = ({route}) => {
   const {moviment, record} = route.params;
   const [newPRWeight, setNewPRWeight] = useState('');
+  const [actualPR, setactualPR] = useState('');
 
+  useEffect(() => {
+    getInfo()
+  
+  }, [])
+  const getInfo = () => {
+    database()
+  .ref(`/users/renan/LPO/${moviment}`)
+  .once('value')
+  .then(snapshot => {
+    const {record} = snapshot.val()
+    setactualPR(record)
+  });
+  }
+
+  const addPR = () => {
+    database()
+  .ref(`/users/renan/LPO/${moviment}`)
+  .set({
+    record: newPRWeight
+  })
+  setactualPR(newPRWeight)
+  }
   return (
   <SafeAreaView>
     <StyledHeaderView>
       <Headline style={{color:"#fff", fontWeight:"bold"}}>
         {moviment}
       </Headline>
-      <Subheading style={{color:"#fff", fontWeight:"normal"}} >PR atual: {record} lbs</Subheading>
+      <Subheading style={{color:"#fff", fontWeight:"normal"}} >PR atual: {actualPR || 0} lbs</Subheading>
     </StyledHeaderView>
     
      <StyledHeaderNewPRView>
@@ -72,7 +96,7 @@ export const DetailsScene = ({route}) => {
         <Subheading > lbs</Subheading>
       </StyledNewPRChild>
       <StyledNewPRView>
-        <StyledNewPRTouchable onPress={() => {console.log('novoPR', newPRWeight)}}>
+        <StyledNewPRTouchable onPress={() => {console.log('novoPR', newPRWeight), addPR()}}>
           <Text>+ Novo PR</Text>
         </StyledNewPRTouchable>
       </StyledNewPRView>
