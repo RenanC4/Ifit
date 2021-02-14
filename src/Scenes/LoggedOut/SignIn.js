@@ -6,7 +6,7 @@ import {
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-community/google-signin';
-
+import database from '@react-native-firebase/database';
 
 
 const StyledView = styled.SafeAreaView`
