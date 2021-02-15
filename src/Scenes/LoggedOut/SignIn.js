@@ -1,13 +1,10 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Image, Text, View } from 'react-native';
 import styled from 'styled-components'
 import {
-  GoogleSignin,
   GoogleSigninButton,
-  statusCodes,
 } from '@react-native-community/google-signin';
-import database from '@react-native-firebase/database';
-
+import {Auth} from '../../Services/Auth'
 
 const StyledView = styled.SafeAreaView`
   background-color: #fff;
@@ -17,11 +14,8 @@ const StyledView = styled.SafeAreaView`
   align-items: center;
 `
 
-const StyledIcon = styled.View`
-
-`
-
 export const SignInScene = ({navigation}) => {
+  const auth = new Auth()
   return (
     <StyledView>
       <View>
@@ -34,7 +28,7 @@ export const SignInScene = ({navigation}) => {
                 style={{width: 192, height: 48}}
                 size={GoogleSigninButton.Size.Wide}
                 color={GoogleSigninButton.Color.Dark}
-                onPress={() => navigation.navigate('Home')}
+                onPress={() => auth.login('renanc433@gmail.com', 'stevejobs1')}
               />
       </View>
     </StyledView>

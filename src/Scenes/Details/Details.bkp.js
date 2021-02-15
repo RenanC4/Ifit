@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import styled from 'styled-components/native'
 import { View, Text, SafeAreaView, Pressable } from 'react-native';
 
-import {calcPercentage, calcAnilhas} from '../../services/utils'
+import {calcPercentage, calcAnilhas} from '../../Services/Utils'
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 
 const StyledMovimentView = styled.View`

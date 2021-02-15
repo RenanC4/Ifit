@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import { getDateNow } from '../../services/Date'
-import { wodObject } from '../../services/WODObject'
+import { getDateNow } from '../../Services/Date'
+import { wodObject } from '../../Constants/WODObject'
 import styled from 'styled-components/native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';

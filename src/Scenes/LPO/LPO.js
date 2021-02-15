@@ -2,9 +2,8 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
-import {LPOMoviments} from '../../services/LpoMoviments'
+import {LPOMoviments} from '../../Constants/LpoMoviments'
 import { useNavigation } from '@react-navigation/native';
-import { View } from 'react-native';
 
 const StyledTouchable = styled.TouchableOpacity`
   display:flex;
