@@ -58,7 +58,6 @@ export const DetailsScene = ({route}) => {
   .once('value')
   .then(snapshot => {
     const {record} = snapshot.val()
-    console.log('te toma no cu rapa', record)
     setactualPR(record)
   })
   .catch(error => {

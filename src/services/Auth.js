@@ -3,10 +3,11 @@ import auth from '@react-native-firebase/auth';
 export class Auth {
   async login(user, password) {
     console.log(user, password)
-    auth()
-    .signInWithEmailAndPassword('renanc433@gmail.com', 'stevejobs1')
+    return auth()
+    .signInWithEmailAndPassword(user, password)
     .then((response) => {
       console.log('user autorizado!', response);
+      return response
     })
     .catch(error => {
       console.error(error);

@@ -9,12 +9,11 @@ import {DetailsScene} from './Scenes/Details/Details'
 import {SignInScene} from './Scenes/LoggedOut/SignIn'
 import {SignUp} from './Scenes/LoggedOut/SignUp'
 
-
 export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"> 
+      <Stack.Navigator initialRouteName="SignIn"> 
         <Stack.Screen 
         name="SignIn" 
         component={SignInScene} 
