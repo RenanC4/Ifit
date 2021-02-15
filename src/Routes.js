@@ -14,7 +14,7 @@ export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="LPO"> 
+      <Stack.Navigator initialRouteName="Home"> 
         <Stack.Screen 
         name="SignIn" 
         component={SignInScene} 

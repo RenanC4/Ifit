@@ -47,7 +47,6 @@ export const DetailsScene = ({route}) => {
   const {moviment, record} = route.params;
   const [newPRWeight, setNewPRWeight] = useState('');
   const [actualPR, setactualPR] = useState('');
-  const [q, setq] = useState({});
 
   useEffect(() => {
     getInfo()
@@ -59,17 +58,13 @@ export const DetailsScene = ({route}) => {
   .once('value')
   .then(snapshot => {
     const {record} = snapshot.val()
+    console.log('te toma no cu rapa', record)
     setactualPR(record)
-  });
-  }
+  })
+  .catch(error => {
+    setactualPR(0)
 
-  const getInfo2 = () => {
-  database()
-  .ref(`/users/renan/nome`)
-  .once('value')
-  .then(snapshot => {
-    const response = snapshot.val()
-    setq(response)
+    console.log(error)
   });
   }
 
@@ -101,13 +96,12 @@ export const DetailsScene = ({route}) => {
           underlineColor="#3a9efd"
           mode='flat'
           value={newPRWeight}
-          right
           onChangeText={text => setNewPRWeight(text)}
         />       
         <Subheading > lbs</Subheading>
       </StyledNewPRChild>
       <StyledNewPRView>
-        <StyledNewPRTouchable onPress={() => {getInfo2(), console.log(q)}}>
+        <StyledNewPRTouchable onPress={() => {addPR()}}>
           <Text>+ Novo PR</Text>
         </StyledNewPRTouchable>
       </StyledNewPRView>
