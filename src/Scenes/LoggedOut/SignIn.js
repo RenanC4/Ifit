@@ -71,18 +71,20 @@ export const SignInScene = ({navigation}) => {
 
   async function LogIn() {
     const response = await auth.login(email, password);
-    console.log('q q ta contecendo', response)
     if (response) {
-      navigation.navigate('Home')
+      navigation.navigate('Home', {
+        displayName : response.user.displayName
+      })
     }
   }
 
   async function SignIn() {
     const response = await auth.signIn(username, email, password);
-    console.log('q q ta contecendo', response)
     if (response) {
       
-      navigation.navigate('Home')
+      navigation.navigate('Home', {
+        displayName: username
+      })
     }
   }
 

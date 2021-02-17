@@ -7,7 +7,7 @@ import {GymnasticMoviments} from '../Constants/GymnasticMoviments'
 function createLPO(username){
   LPOMoviments.forEach(moviment => {
     database()
-    .ref(`/users/${username}/LPO/${moviment.moviment}`)
+    .ref(`/${username}/LPO/${moviment.moviment}`)
     .set({
       record: 0
     })
@@ -17,7 +17,7 @@ function createLPO(username){
 function createEndurance(username){
   EnduranceMoviments.forEach(moviment => {
     database()
-    .ref(`/users/${username}/Endurance/${moviment.moviment}`)
+    .ref(`/${username}/Endurance/${moviment.moviment}`)
     .set({
       record: 0
     })
@@ -26,7 +26,7 @@ function createEndurance(username){
 function createGymnastics(username){
   GymnasticMoviments.forEach(moviment => {
     database()
-    .ref(`/users/${username}/Gymnastics/${moviment.moviment}`)
+    .ref(`/${username}/Gymnastics/${moviment.moviment}`)
     .set({
       record: 0
     })
@@ -51,13 +51,9 @@ export class Auth {
     auth()
     .createUserWithEmailAndPassword(email, password)
     .then((response) => {
-      database()
-      .ref(`/users`)
-      .set({
-       username,
-       email
-    })
-
+      response.user.updateProfile({
+        displayName: username
+      })
       createLPO(username)
       createGymnastics(username)
       createEndurance(username)

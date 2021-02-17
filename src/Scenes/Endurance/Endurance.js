@@ -45,7 +45,7 @@ const [moviments, setMoviments] = useState([])
 
   const getInfo = () => {
     database()
-  .ref(`/users/Naner/Endurance`)
+  .ref(`/Naner/Endurance`)
   .once('value')
   .then(snapshot => {
     

@@ -36,11 +36,12 @@ const HelloView = styled.View`
 const HelloText = styled.Text`
   font-size: 22px;
 `
-export const HomeScene = ({navigation}) => {
+export const HomeScene = ({navigation, route}) => {
+  const {displayName} = route.params
   return (
     <View>
       <HelloView>
-       <HelloText>Olà, Mat Fraser</HelloText>
+       <HelloText>Olá, {displayName}</HelloText>
       </HelloView>
       <StyledContainerView>
         <ButtonIcon text="WOD" onPressHandler={() => {navigation.navigate('Wod')}}/>
