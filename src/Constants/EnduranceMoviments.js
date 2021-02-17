@@ -1,0 +1,21 @@
+export const EnduranceMoviments = [
+ {moviment: "Air Bike (100 cal)", record: 0},
+ {moviment: "Air Bike (50 cal)", record: 0},
+ {moviment: "Air Bike (Max cal 1)", record: 0},
+ {moviment: "Lateral Squats Hops", record: 0},
+ {moviment: "Row 100m", record: 0},
+ {moviment: "Row 10km", record: 0},
+ {moviment: "Row 1km", record: 0},
+ {moviment: "Row 2km", record: 0},
+ {moviment: "Row 500m", record: 0},
+ {moviment: "Row 5km", record: 0},
+ {moviment: "Row 100m", record: 0},
+ {moviment: "Run 1 mile", record: 0},
+ {moviment: "Run 10 km", record: 0},
+ {moviment: "Run 1200m", record: 0},
+ {moviment: "Run 15km", record: 0},
+ {moviment: "Run 200m", record: 0},
+ {moviment: "Run 400m", record: 0},
+ {moviment: "Run 5km", record: 0},
+ {moviment: "Run 800m", record: 0}
+]

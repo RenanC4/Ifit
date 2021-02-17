@@ -5,6 +5,8 @@ import {displayName as appName} from '../app.json';
 import {HomeScene} from './Scenes/Home/Home'
 import {WodScene} from './Scenes/WOD/WOD'
 import {LpoScene} from './Scenes/LPO/LPO'
+import {EnduranceScene} from './Scenes/Endurance/Endurance'
+
 import {DetailsScene} from './Scenes/Details/Details'
 import {SignInScene} from './Scenes/LoggedOut/SignIn'
 import {SignUp} from './Scenes/LoggedOut/SignUp'
@@ -13,7 +15,7 @@ export const Routes = () => {
 	const Stack = createStackNavigator();
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home"> 
+      <Stack.Navigator initialRouteName="SignIn"> 
         <Stack.Screen 
         name="SignIn" 
         component={SignInScene} 
@@ -27,6 +29,9 @@ export const Routes = () => {
         <Stack.Screen name="Wod" component={WodScene} />
         <Stack.Screen name="Lpo" component={LpoScene} 
         options={{ title: "LPO"}}
+        />
+        <Stack.Screen name="Endurance" component={EnduranceScene} 
+        options={{ title: "Endurance"}}
         />
         <Stack.Screen name="Details" component={DetailsScene} 
         options={{ title: "Details"}}

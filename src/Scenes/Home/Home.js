@@ -45,7 +45,7 @@ export const HomeScene = ({navigation}) => {
       <StyledContainerView>
         <ButtonIcon text="WOD" onPressHandler={() => {navigation.navigate('Wod')}}/>
         <ButtonIcon text="LPO" onPressHandler={() => {navigation.navigate('Lpo')}}/>
-        <ButtonIcon text="Endurance"/>
+        <ButtonIcon text="Endurance" onPressHandler={() => {navigation.navigate('Endurance')}}/>
         <ButtonIcon text="Gymnastics"/>
         <ButtonIcon text="Store"/>
         <ButtonIcon text="Open 2020"/>

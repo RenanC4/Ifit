@@ -26,7 +26,7 @@ const generateComponent = (moviment, key, record, navigation) => {
  return (
 <StyledTouchable key={key} onPress={()=> navigation.navigate('Details', {
       moviment,
-      origin: 'LPO'
+      origin: 'Endurance'
     })}>    
     <StyledMovimentText>{moviment}</StyledMovimentText> 
     {record ? <StyledMovimentText>{record}</StyledMovimentText> : <></>}
@@ -35,7 +35,7 @@ const generateComponent = (moviment, key, record, navigation) => {
  
 }
 
-export const LpoScene = () => {
+export const EnduranceScene = () => {
 const [moviments, setMoviments] = useState([])
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const [moviments, setMoviments] = useState([])
 
   const getInfo = () => {
     database()
-  .ref(`/users/Naner/LPO`)
+  .ref(`/users/Naner/Endurance`)
   .once('value')
   .then(snapshot => {
     

@@ -44,7 +44,7 @@ const StyledNewPRView = styled.View`
   align-items: center;
 `
 export const DetailsScene = ({route}) => {
-  const {moviment, record} = route.params;
+  const {moviment, origin} = route.params;
   const [newPRWeight, setNewPRWeight] = useState('');
   const [actualPR, setactualPR] = useState('');
 
@@ -54,7 +54,7 @@ export const DetailsScene = ({route}) => {
   }, [])
   const getInfo = () => {
     database()
-  .ref(`/users/Naner/LPO/${moviment}`)
+  .ref(`/users/Naner/${origin}/${moviment}`)
   .once('value')
   .then(snapshot => {
     const {record} = snapshot.val()
@@ -69,7 +69,7 @@ export const DetailsScene = ({route}) => {
 
   const addPR = () => {
     database()
-  .ref(`/users/Naner/LPO/${moviment}`)
+  .ref(`/users/Naner/${origin}/${moviment}`)
   .set({
     record: newPRWeight
   })
@@ -81,13 +81,13 @@ export const DetailsScene = ({route}) => {
       <Headline style={{color:"#fff", fontWeight:"bold"}}>
         {moviment}
       </Headline>
-      <Subheading style={{color:"#fff", fontWeight:"normal"}} >PR atual: {actualPR || 0} lbs</Subheading>
+      <Subheading style={{color:"#fff", fontWeight:"normal"}} >PR atual: {actualPR || 0} </Subheading>
     </StyledHeaderView>
     
      <StyledHeaderNewPRView>
        <StyledNewPRChild>
          <Subheading>Novo recorde - </Subheading>
-         <Subheading>Peso:</Subheading>
+         {origin === "LPO" ?  <Subheading>Peso:</Subheading> : <></>}
         <TextInput
           style={{width: 80, height: 40, backgroundColor: "#f1f1f1"}}
           label="Peso"
@@ -97,7 +97,8 @@ export const DetailsScene = ({route}) => {
           value={newPRWeight}
           onChangeText={text => setNewPRWeight(text)}
         />       
-        <Subheading > lbs</Subheading>
+                 {origin === "LPO" ?  <Subheading>lbs</Subheading> : <></>}
+
       </StyledNewPRChild>
       <StyledNewPRView>
         <StyledNewPRTouchable onPress={() => {addPR()}}>

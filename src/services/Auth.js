@@ -1,11 +1,22 @@
 import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth'; 
 import {LPOMoviments} from '../Constants/LpoMoviments'
+import {EnduranceMoviments} from '../Constants/EnduranceMoviments'
 
 function createLPO(username){
   LPOMoviments.forEach(moviment => {
     database()
     .ref(`/users/${username}/LPO/${moviment.moviment}`)
+    .set({
+      record: 0
+    })
+  })
+}
+
+function createEndurance(username){
+  EnduranceMoviments.forEach(moviment => {
+    database()
+    .ref(`/users/${username}/Endurance/${moviment.moviment}`)
     .set({
       record: 0
     })
@@ -37,6 +48,7 @@ export class Auth {
     })
 
       createLPO(username)
+      createEndurance(username)
      console.log('User account created & signed in!');
      return true
     })
