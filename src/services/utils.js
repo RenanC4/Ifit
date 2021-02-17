@@ -7,7 +7,6 @@ const verifyAnilhas = (value, anilha) => {
   return false
 }
 
-
 export const calcAnilhas = (gender, value) => {
   let anilhasBoladas = {};
   let anilhas = [55, 45, 35, 25, 15, 10, 5, 2.5];
@@ -36,3 +35,16 @@ export const calcAnilhas = (gender, value) => {
   return anilhasBoladas
 }
 
+export const orderMovimentsAlphabeticaly = (firebaseObject) => {
+  let movimentos = Object.keys(firebaseObject)
+  let records = Object.values(firebaseObject)
+
+  let map = new Map()
+  for(let i = 0; i< movimentos.length; i++) {
+    map.set(movimentos[i], records[i].record)
+  }
+  
+  var mapAsc = new Map([...map.entries()].sort())
+
+  return mapAsc
+} 

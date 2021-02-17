@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-navigation';
 import {LPOMoviments} from '../../Constants/LpoMoviments'
 import { useNavigation } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
-
+import {orderMovimentsAlphabeticaly} from '../../Services/Utils'
 const StyledTouchable = styled.TouchableOpacity`
   display:flex;
   flex-direction: row;
@@ -42,45 +42,35 @@ const [moviments, setMoviments] = useState([])
     getInfo()
   
   }, [])
+
   const getInfo = () => {
     database()
   .ref(`/users/Naner/LPO`)
   .once('value')
   .then(snapshot => {
     
-    const record = snapshot.val()
+    const moviments = snapshot.val()
+    const movimentsOrdered = orderMovimentsAlphabeticaly(moviments)
 
-    let movimentos = Object.keys(record);
-    let records = Object.values(record)
-
-    let objetoC = [] 
-    movimentos.forEach((moviment, index) => {
-      let key = moviment;
-      let obj = {}
-      obj[key] = records[index].record
-      objetoC.push(obj)
-    })
-    setMoviments(objetoC)
+    setMoviments(movimentsOrdered)
   })
   .catch(error => {
-    console.log(error)
+    console.log(error)7
   });
   }
   const navigation = useNavigation();
 
   let items = []
-  if(moviments.length > 0 ) {
-    console.log('moviments',  moviments[0])
-    moviments.sort().forEach((moviment, index) => {
+  if(moviments.size > 0 ) {
+    moviments.forEach((value, key) => {
       items.push(generateComponent(
-        Object.keys(moviment),
-        index,
-        Object.values(moviment),
+        key,
+        Math.random(),
+        value,
         navigation
          ))
     })
   }
-  
   
   return (
     <ScrollView>
