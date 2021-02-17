@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Image, View, TextInput, TouchableOpacity, Text } from 'react-native';
+import { Image, View, TextInput, Text, Pressable } from 'react-native';
 import styled from 'styled-components'
 import {Auth} from '../../Services/Auth'
 
@@ -21,6 +21,16 @@ const StyledSigInView =styled.View`
   flex-direction: column;
   align-items: center;
 `
+const StyledSigUpView =styled.View`
+  border-color: #3a9efd;
+  width: 300px;
+  height: 420px;
+  border-radius: 3px;
+  border-width: 1px; 
+  flex-direction: column;
+  align-items: center;
+`
+
 const StyledSigInText =styled.Text`
  color: #000;
  font-size: 16px;
@@ -56,13 +66,22 @@ export const SignInScene = ({navigation}) => {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
   const [isLoginLoading, setIsLoginLoading] = useState(false);
+  const [isCreating, setIsCreating] = useState(false)
 
-  async function SignIn() {
+  async function LogIn() {
     const response = await auth.login(email, password);
     console.log('q q ta contecendo', response)
     if (response) {
+      navigation.navigate('Home')
+    }
+  }
+
+  async function SignIn() {
+    const response = await auth.signIn(username, email, password);
+    console.log('q q ta contecendo', response)
+    if (response) {
+      
       navigation.navigate('Home')
     }
   }
@@ -74,8 +93,53 @@ export const SignInScene = ({navigation}) => {
           source={require('../../assets/barbell.png')}
         />
       </View>
-      <StyledSigInView>
+      {!isCreating && <StyledSigInView>
         <StyledFormView>
+          <StyledLabelText>E-mail</StyledLabelText>
+          <TextInput
+              style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
+              label="Peso"
+              selectionColor="#3a9efd"
+              underlineColor="#3a9efd"
+              mode='flat'
+              value={email}
+              onChangeText={text => setEmail(text)}
+            /> 
+          <StyledLabelText>Senha</StyledLabelText>
+          <TextInput
+              style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
+              secureTextEntry={true}
+              label="Peso"
+              selectionColor="#3a9efd"
+              underlineColor="#3a9efd"
+              mode='flat'
+              value={password}
+              onChangeText={text => setPassword(text)}
+            /> 
+        </StyledFormView>
+        <StyledInButton
+          onPress={() => LogIn()}
+        > 
+          <StyledInText>Entrar</StyledInText>
+        </StyledInButton>
+      </StyledSigInView>
+      }
+      {!isCreating && <Pressable onPress={()=> {setIsCreating(true)}}>
+        <StyledSigInText>Criar uma conta</StyledSigInText>
+        </Pressable>
+      }
+      {isCreating && <StyledSigUpView>
+        <StyledFormView>
+          <StyledLabelText>Username</StyledLabelText>
+          <TextInput
+              style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
+              label="Peso"
+              selectionColor="#3a9efd"
+              underlineColor="#3a9efd"
+              mode='flat'
+              value={username}
+              onChangeText={text => setUsername(text)}
+            /> 
           <StyledLabelText>E-mail</StyledLabelText>
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
@@ -101,10 +165,14 @@ export const SignInScene = ({navigation}) => {
         <StyledInButton
           onPress={() => SignIn()}
         > 
-          <StyledInText>Entrar</StyledInText>
+          <StyledInText>Criar Conta</StyledInText>
         </StyledInButton>
-      </StyledSigInView>
-      <StyledSigInText>Criar uma conta</StyledSigInText>
+      </StyledSigUpView>
+      }
+      {isCreating && <Pressable onPress={()=> {setIsCreating(false)}}>
+        <StyledSigInText>Entrar</StyledSigInText>
+        </Pressable>
+      }
     </StyledView>
   );
 }

@@ -54,7 +54,7 @@ export const DetailsScene = ({route}) => {
   }, [])
   const getInfo = () => {
     database()
-  .ref(`/users/renan/LPO/${moviment}`)
+  .ref(`/users/Naner/LPO/${moviment}`)
   .once('value')
   .then(snapshot => {
     const {record} = snapshot.val()
@@ -69,7 +69,7 @@ export const DetailsScene = ({route}) => {
 
   const addPR = () => {
     database()
-  .ref(`/users/renan/LPO/${moviment}`)
+  .ref(`/users/Naner/LPO/${moviment}`)
   .set({
     record: newPRWeight
   })
