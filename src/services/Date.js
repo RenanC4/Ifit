@@ -1,1 +1,1 @@
-export const getDateNow = () => `${new Date().getDay()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
+export const getDateNow = () => `${new Date().getDate()}/${new Date().getMonth()+1}/${new Date().getFullYear()}`
