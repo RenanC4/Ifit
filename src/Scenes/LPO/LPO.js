@@ -55,7 +55,7 @@ const [moviments, setMoviments] = useState([])
     setMoviments(movimentsOrdered)
   })
   .catch(error => {
-    console.log(error)7
+    console.log(error)
   });
   }
   const navigation = useNavigation();
