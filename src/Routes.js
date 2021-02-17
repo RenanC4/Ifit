@@ -6,6 +6,7 @@ import {HomeScene} from './Scenes/Home/Home'
 import {WodScene} from './Scenes/WOD/WOD'
 import {LpoScene} from './Scenes/LPO/LPO'
 import {EnduranceScene} from './Scenes/Endurance/Endurance'
+import {GymnasticsScene} from './Scenes/Gymnastics/Gymnastics'
 
 import {DetailsScene} from './Scenes/Details/Details'
 import {SignInScene} from './Scenes/LoggedOut/SignIn'
@@ -32,6 +33,9 @@ export const Routes = () => {
         />
         <Stack.Screen name="Endurance" component={EnduranceScene} 
         options={{ title: "Endurance"}}
+        />
+        <Stack.Screen name="Gymnastics" component={GymnasticsScene} 
+        options={{ title: "Gymnastics"}}
         />
         <Stack.Screen name="Details" component={DetailsScene} 
         options={{ title: "Details"}}

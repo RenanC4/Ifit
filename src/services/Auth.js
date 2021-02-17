@@ -2,6 +2,7 @@ import database from '@react-native-firebase/database';
 import auth from '@react-native-firebase/auth'; 
 import {LPOMoviments} from '../Constants/LpoMoviments'
 import {EnduranceMoviments} from '../Constants/EnduranceMoviments'
+import {GymnasticMoviments} from '../Constants/GymnasticMoviments'
 
 function createLPO(username){
   LPOMoviments.forEach(moviment => {
@@ -22,6 +23,16 @@ function createEndurance(username){
     })
   })
 }
+function createGymnastics(username){
+  GymnasticMoviments.forEach(moviment => {
+    database()
+    .ref(`/users/${username}/Gymnastics/${moviment.moviment}`)
+    .set({
+      record: 0
+    })
+  })
+}
+
 
 export class Auth {
   async login(user, password) {
@@ -48,9 +59,10 @@ export class Auth {
     })
 
       createLPO(username)
+      createGymnastics(username)
       createEndurance(username)
-     console.log('User account created & signed in!');
-     return true
+      return
+    
     })
     .catch(error => {
       if (error.code === 'auth/email-already-in-use') {
@@ -62,5 +74,7 @@ export class Auth {
       }
     console.error(error);
   });
+
+  return true
   }
 }
