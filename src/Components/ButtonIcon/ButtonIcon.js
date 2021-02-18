@@ -13,7 +13,7 @@ const StyledPressable = styled.Pressable`
   justify-content:center;
   align-items: center;
   margin: 10px;
-  border-color:#3a9efd;
+  border-color:#f3797b;
   
 `
 

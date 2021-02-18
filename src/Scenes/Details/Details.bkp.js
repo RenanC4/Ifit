@@ -60,7 +60,7 @@ const StyledNewPRTouchable = styled.TouchableOpacity`
   align-items: center;
   height: 50px;
   margin-top: 15px;
-  border-color:#3a9efd;
+  border-color:#f3797b;
   border-radius: 5px;
   border-width: 1px;
 `

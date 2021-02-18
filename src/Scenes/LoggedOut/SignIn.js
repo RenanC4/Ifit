@@ -13,7 +13,7 @@ const StyledView = styled.SafeAreaView`
 `
 
 const StyledSigInView =styled.View`
-  border-color: #3a9efd;
+  border-color: #f3797b;
   width: 300px;
   height: 350px;
   border-radius: 3px;
@@ -22,7 +22,7 @@ const StyledSigInView =styled.View`
   align-items: center;
 `
 const StyledSigUpView =styled.View`
-  border-color: #3a9efd;
+  border-color: #f3797b;
   width: 300px;
   height: 420px;
   border-radius: 3px;
@@ -47,7 +47,7 @@ const StyledFormView = styled.View`
   padding-top: 30px;
 `
 const StyledInButton = styled.TouchableOpacity`
-  background-color: #3a9efd;
+  background-color: #f3797b;
   width: 200px;
   height: 45px;
   margin-top: 35px;
@@ -101,8 +101,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#3a9efd"
-              underlineColor="#3a9efd"
+              selectionColor="#f3797b"
+              underlineColor="#f3797b"
               mode='flat'
               value={email}
               onChangeText={text => setEmail(text)}
@@ -112,8 +112,8 @@ export const SignInScene = ({navigation}) => {
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               secureTextEntry={true}
               label="Peso"
-              selectionColor="#3a9efd"
-              underlineColor="#3a9efd"
+              selectionColor="#f3797b"
+              underlineColor="#f3797b"
               mode='flat'
               value={password}
               onChangeText={text => setPassword(text)}
@@ -136,8 +136,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#3a9efd"
-              underlineColor="#3a9efd"
+              selectionColor="#f3797b"
+              underlineColor="#f3797b"
               mode='flat'
               value={username}
               onChangeText={text => setUsername(text)}
@@ -146,8 +146,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#3a9efd"
-              underlineColor="#3a9efd"
+              selectionColor="#f3797b"
+              underlineColor="#f3797b"
               mode='flat'
               value={email}
               onChangeText={text => setEmail(text)}
@@ -157,8 +157,8 @@ export const SignInScene = ({navigation}) => {
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               secureTextEntry={true}
               label="Peso"
-              selectionColor="#3a9efd"
-              underlineColor="#3a9efd"
+              selectionColor="#f3797b"
+              underlineColor="#f3797b"
               mode='flat'
               value={password}
               onChangeText={text => setPassword(text)}

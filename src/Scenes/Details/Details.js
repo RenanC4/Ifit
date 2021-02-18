@@ -9,7 +9,7 @@ const StyledHeaderView = styled.View`
   flex-direction: row; 
   align-items: center;
   justify-content: space-around;
-  background-color:#3a9efd;
+  background-color:#f3797b;
   height:80px;
 `
 const StyledHeaderNewPRView = styled.View`
@@ -33,7 +33,7 @@ const StyledNewPRTouchable = styled.TouchableOpacity`
   height: 50px;
   width: 150px;
   margin-top: 15px;
-  border-color:#3a9efd;
+  border-color:#f3797b;
   border-radius: 5px;
   border-width: 1px;
 `
@@ -91,8 +91,8 @@ export const DetailsScene = ({route}) => {
         <TextInput
           style={{width: 80, height: 40, backgroundColor: "#f1f1f1"}}
           label="Peso"
-          selectionColor="#3a9efd"
-          underlineColor="#3a9efd"
+          selectionColor="#f3797b"
+          underlineColor="#f3797b"
           mode='flat'
           value={newPRWeight}
           onChangeText={text => setNewPRWeight(text)}
