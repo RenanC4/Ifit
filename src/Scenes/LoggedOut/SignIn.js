@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Image, View, TextInput, Text, Pressable } from 'react-native';
+import { Image, View, TextInput, Text, Pressable, ScrollView } from 'react-native';
 import styled from 'styled-components'
 import {Auth} from '../../Services/Auth'
 import {mainColor as color} from '../../../app.json';
@@ -106,6 +106,7 @@ export const SignInScene = ({navigation}) => {
   }
 
   return (
+    <ScrollView style={{backgroundColor: '#fff'}}>
     <StyledView>
       <View>
         <Image 
@@ -193,5 +194,6 @@ export const SignInScene = ({navigation}) => {
         </Pressable>
       }
     </StyledView>
+    </ScrollView>
   );
 }
