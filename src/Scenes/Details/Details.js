@@ -3,13 +3,14 @@ import styled from 'styled-components/native'
 import {TextInput, SafeAreaView, Text} from 'react-native'
 import { Headline, Subheading } from 'react-native-paper';
 import database from '@react-native-firebase/database';
+import {mainColor as color} from '../../../app.json';
 
 const StyledHeaderView = styled.View`
   display: flex;
   flex-direction: row; 
   align-items: center;
   justify-content: space-around;
-  background-color:#f3797b;
+  background-color:${color};
   height:80px;
 `
 const StyledHeaderNewPRView = styled.View`
@@ -33,7 +34,7 @@ const StyledNewPRTouchable = styled.TouchableOpacity`
   height: 50px;
   width: 150px;
   margin-top: 15px;
-  border-color:#f3797b;
+  border-color:${color};
   border-radius: 5px;
   border-width: 1px;
 `
@@ -91,8 +92,8 @@ export const DetailsScene = ({route}) => {
         <TextInput
           style={{width: 80, height: 40, backgroundColor: "#f1f1f1"}}
           label="Peso"
-          selectionColor="#f3797b"
-          underlineColor="#f3797b"
+          selectionColor="#999"
+          underlineColor="#999"
           mode='flat'
           value={newPRWeight}
           onChangeText={text => setNewPRWeight(text)}

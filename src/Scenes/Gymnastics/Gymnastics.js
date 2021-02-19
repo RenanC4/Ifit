@@ -14,7 +14,7 @@ const StyledTouchable = styled.TouchableOpacity`
   margin-top: 10px;
   height: 50px;
   border-bottom-width: 1px;
-  border-bottom-color: #f3797b;
+  border-bottom-color: #999;
 
 `
 const StyledMovimentText = styled.Text`

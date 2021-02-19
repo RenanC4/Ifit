@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { Image, View, TextInput, Text, Pressable } from 'react-native';
 import styled from 'styled-components'
 import {Auth} from '../../Services/Auth'
+import {mainColor as color} from '../../../app.json';
 
 
 const StyledView = styled.SafeAreaView`
@@ -13,7 +14,7 @@ const StyledView = styled.SafeAreaView`
 `
 
 const StyledSigInView =styled.View`
-  border-color: #f3797b;
+  border-color: ${color};
   width: 300px;
   height: 350px;
   border-radius: 3px;
@@ -22,7 +23,7 @@ const StyledSigInView =styled.View`
   align-items: center;
 `
 const StyledSigUpView =styled.View`
-  border-color: #f3797b;
+  border-color: ${color};
   width: 300px;
   height: 420px;
   border-radius: 3px;
@@ -47,7 +48,7 @@ const StyledFormView = styled.View`
   padding-top: 30px;
 `
 const StyledInButton = styled.TouchableOpacity`
-  background-color: #f3797b;
+  background-color: ${color};
   width: 200px;
   height: 45px;
   margin-top: 35px;
@@ -101,8 +102,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#f3797b"
-              underlineColor="#f3797b"
+              selectionColor="#999"
+              underlineColor="#999"
               mode='flat'
               value={email}
               onChangeText={text => setEmail(text)}
@@ -112,8 +113,8 @@ export const SignInScene = ({navigation}) => {
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               secureTextEntry={true}
               label="Peso"
-              selectionColor="#f3797b"
-              underlineColor="#f3797b"
+              selectionColor="#999"
+              underlineColor="#999"
               mode='flat'
               value={password}
               onChangeText={text => setPassword(text)}
@@ -136,8 +137,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#f3797b"
-              underlineColor="#f3797b"
+              selectionColor="#999"
+              underlineColor="#999"
               mode='flat'
               value={username}
               onChangeText={text => setUsername(text)}
@@ -146,8 +147,8 @@ export const SignInScene = ({navigation}) => {
           <TextInput
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               label="Peso"
-              selectionColor="#f3797b"
-              underlineColor="#f3797b"
+              selectionColor="#999"
+              underlineColor="#999"
               mode='flat'
               value={email}
               onChangeText={text => setEmail(text)}
@@ -157,8 +158,8 @@ export const SignInScene = ({navigation}) => {
               style={{width: 200, height: 40, backgroundColor: "#f1f1f1", marginTop: 5}}
               secureTextEntry={true}
               label="Peso"
-              selectionColor="#f3797b"
-              underlineColor="#f3797b"
+              selectionColor="#999"
+              underlineColor="#999"
               mode='flat'
               value={password}
               onChangeText={text => setPassword(text)}

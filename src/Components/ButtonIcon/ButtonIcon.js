@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import {mainColor as color} from '../../../app.json';
 
 const StyledText = styled.Text`
   color: #333;
@@ -13,7 +14,7 @@ const StyledPressable = styled.Pressable`
   justify-content:center;
   align-items: center;
   margin: 10px;
-  border-color:#f3797b;
+  border-color:${color};
   
 `
 
