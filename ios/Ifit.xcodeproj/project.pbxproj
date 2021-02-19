@@ -889,7 +889,6 @@
 				LD_MAP_FILE_PATH = "$(inherited)";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/AppAuth\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/DoubleConversion\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/FBReactNativeSpec\"",
@@ -933,6 +932,9 @@
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/nanopb\"",
 					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-safe-area-context\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/react-native-splash-screen\"",
+					"\"${PODS_CONFIGURATION_BUILD_DIR}/RNSnackbar\"",
+					"$(inherited)",
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
