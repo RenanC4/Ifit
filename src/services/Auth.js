@@ -48,7 +48,7 @@ export class Auth {
     });
   }
   async signIn(username, email, password) {
-    auth()
+   const response =  auth()
     .createUserWithEmailAndPassword(email, password)
     .then((response) => {
       response.user.updateProfile({
@@ -57,20 +57,22 @@ export class Auth {
       createLPO(username)
       createGymnastics(username)
       createEndurance(username)
-      return
-    
+      return true
     })
     .catch(error => {
+      let erro = {}
       if (error.code === 'auth/email-already-in-use') {
+        erro.message = 'Email já cadastrado!'
         console.log('That email address is already in use!');
       }
 
       if (error.code === 'auth/invalid-email') {
+        erro.message = 'Email inválido'
         console.log('That email address is invalid!');
       }
-    console.error(error);
+    return erro;
   });
 
-  return true
+  return response
   }
 }

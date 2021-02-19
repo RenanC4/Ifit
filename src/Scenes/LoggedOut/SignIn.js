@@ -3,6 +3,7 @@ import { Image, View, TextInput, Text, Pressable } from 'react-native';
 import styled from 'styled-components'
 import {Auth} from '../../Services/Auth'
 import {mainColor as color} from '../../../app.json';
+import SnackBar from 'react-native-snackbar';
 
 
 const StyledView = styled.SafeAreaView`
@@ -71,20 +72,35 @@ export const SignInScene = ({navigation}) => {
   const [isCreating, setIsCreating] = useState(false)
 
   async function LogIn() {
-    const response = await auth.login(email, password);
-    if (response) {
-      navigation.navigate('Home', {
-        displayName : response.user.displayName
-      })
-    }
+    
+      const response = await auth.login(email, password);
+      if (response) {
+        navigation.navigate('Home', {
+          displayName : response.user.displayName
+        })
+      } else {
+        SnackBar.show({
+          text: 'Usuario ou senha incorretos!',
+          duration: 5000,
+          backgroundColor: "#f82c2c"
+        })
+      }
+    
+ 
   }
 
   async function SignIn() {
     const response = await auth.signIn(username, email, password);
-    if (response) {
-      
+    console.log('whaaaat', response)
+    if (response === true) {
       navigation.navigate('Home', {
         displayName: username
+      })
+    } else {
+      SnackBar.show({
+        text: response.message,
+        duration: 5000,
+        backgroundColor: "#f82c2c"
       })
     }
   }
