@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import styled from 'styled-components/native'
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-navigation';
-import {LPOMoviments} from '../../Constants/LpoMoviments'
+import {mainColor as color} from '../../../app.json';
 import { useNavigation } from '@react-navigation/native';
 import database from '@react-native-firebase/database';
 import {orderMovimentsAlphabeticaly} from '../../Services/Utils'
@@ -14,7 +14,7 @@ const StyledTouchable = styled.TouchableOpacity`
   margin-top: 10px;
   height: 50px;
   border-bottom-width: 1px;
-  border-bottom-color: #999;
+  border-bottom-color: ${color};
 
 `
 const StyledMovimentText = styled.Text`
